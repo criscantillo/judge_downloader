@@ -1,0 +1,5 @@
+.item-selected{
+    background-color: #e0ffea;
+    border: 2px dashed #4c618d;
+    cursor: pointer;
+}

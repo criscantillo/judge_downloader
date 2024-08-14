@@ -1,0 +1,28 @@
+{
+    "name": "Rama Judicial Downloader",
+    "description": "Descargar estados electrónicos, Rama Judicial",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "downloads",
+        "tabs",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "Rama judicial downloader",
+        "default_popup": "index.html",
+        "default_icon": "download.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://publicacionesprocesales.ramajudicial.gov.co/*"
+            ],
+            "js": ["jquery-3.6.0.min.js", "moment.min.js", "content.js"],
+            "css" : ["style.css"]
+        }
+    ]
+}

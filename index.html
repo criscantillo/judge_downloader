@@ -1,0 +1,139 @@
+<style>
+html{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 400px;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.i-form{
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+button{
+    cursor: pointer;
+    border: 1px solid rgb(48, 54, 134);
+    background-color: rgb(93, 147, 224);
+    color:#fff;
+    font-weight: bold;
+    transition: 0.3s all;
+}
+
+input[type=text]{
+    border: 1px solid rgb(48, 54, 134);
+}
+
+button:hover{
+    background-color: rgb(67, 116, 184);
+}
+
+.io-cont{
+    display: flex;
+    padding: 5px;
+}
+
+.io-cont button{
+    margin-right: 5px;
+}
+
+.import-button{
+    background-color: rgb(58, 108, 129);
+}
+
+.import-button:hover{
+    background-color: rgb(43, 80, 102);
+}
+
+.export-button{
+    background-color: rgb(63, 138, 93);
+}
+
+.export-button:hover{
+    background-color: rgb(42, 104, 70);
+}
+
+.folder{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#deletePage{
+    cursor: pointer;
+    width: 30px;
+    margin-left: 5px;
+    padding-top: 5px;
+}
+
+.judgeMsg{
+    padding: 3px;
+    margin-top: 5px;
+    color: rgb(23, 134, 49);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.item-selected{
+    border: 2px dashed #126e07;
+    background-color: rgb(198, 219, 197);
+}
+
+.file-hide{
+    display: none;
+}
+</style>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        .icon {
+            cursor: pointer;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Rama Judicial Downloader</h1>
+    <div class="folder">
+      <input type="text" id="_folder" class="i-form" placeholder="Nombre de la carpeta" />
+      <a class="icon" style="margin-top: 13px;" id="savePage">
+        <svg width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#4f72ab" stroke="#4f72ab">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+            <g id="SVGRepo_iconCarrier"> <title>save-floppy</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-152.000000, -515.000000)" fill="#000000"> <path d="M171,525 C171.552,525 172,524.553 172,524 L172,520 C172,519.447 171.552,519 171,519 C170.448,519 170,519.447 170,520 L170,524 C170,524.553 170.448,525 171,525 L171,525 Z M182,543 C182,544.104 181.104,545 180,545 L156,545 C154.896,545 154,544.104 154,543 L154,519 C154,517.896 154.896,517 156,517 L158,517 L158,527 C158,528.104 158.896,529 160,529 L176,529 C177.104,529 178,528.104 178,527 L178,517 L180,517 C181.104,517 182,517.896 182,519 L182,543 L182,543 Z M160,517 L176,517 L176,526 C176,526.553 175.552,527 175,527 L161,527 C160.448,527 160,526.553 160,526 L160,517 L160,517 Z M180,515 L156,515 C153.791,515 152,516.791 152,519 L152,543 C152,545.209 153.791,547 156,547 L180,547 C182.209,547 184,545.209 184,543 L184,519 C184,516.791 182.209,515 180,515 L180,515 Z" id="save-floppy" sketch:type="MSShapeGroup"> </path> </g> </g> </g>
+        </svg>
+      </a>
+      <a class="icon" id="deletePage">
+        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+            <g id="SVGRepo_iconCarrier"> <path d="M12 2.75C11.0215 2.75 10.1871 3.37503 9.87787 4.24993C9.73983 4.64047 9.31134 4.84517 8.9208 4.70713C8.53026 4.56909 8.32557 4.1406 8.46361 3.75007C8.97804 2.29459 10.3661 1.25 12 1.25C13.634 1.25 15.022 2.29459 15.5365 3.75007C15.6745 4.1406 15.4698 4.56909 15.0793 4.70713C14.6887 4.84517 14.2602 4.64047 14.1222 4.24993C13.813 3.37503 12.9785 2.75 12 2.75Z" fill="#1C274C"/> <path d="M2.75 6C2.75 5.58579 3.08579 5.25 3.5 5.25H20.5001C20.9143 5.25 21.2501 5.58579 21.2501 6C21.2501 6.41421 20.9143 6.75 20.5001 6.75H3.5C3.08579 6.75 2.75 6.41421 2.75 6Z" fill="#1C274C"/> <path d="M5.91508 8.45011C5.88753 8.03681 5.53015 7.72411 5.11686 7.75166C4.70356 7.77921 4.39085 8.13659 4.41841 8.54989L4.88186 15.5016C4.96735 16.7844 5.03641 17.8205 5.19838 18.6336C5.36678 19.4789 5.6532 20.185 6.2448 20.7384C6.83639 21.2919 7.55994 21.5307 8.41459 21.6425C9.23663 21.75 10.2751 21.75 11.5607 21.75H12.4395C13.7251 21.75 14.7635 21.75 15.5856 21.6425C16.4402 21.5307 17.1638 21.2919 17.7554 20.7384C18.347 20.185 18.6334 19.4789 18.8018 18.6336C18.9637 17.8205 19.0328 16.7844 19.1183 15.5016L19.5818 8.54989C19.6093 8.13659 19.2966 7.77921 18.8833 7.75166C18.47 7.72411 18.1126 8.03681 18.0851 8.45011L17.6251 15.3492C17.5353 16.6971 17.4712 17.6349 17.3307 18.3405C17.1943 19.025 17.004 19.3873 16.7306 19.6431C16.4572 19.8988 16.083 20.0647 15.391 20.1552C14.6776 20.2485 13.7376 20.25 12.3868 20.25H11.6134C10.2626 20.25 9.32255 20.2485 8.60915 20.1552C7.91715 20.0647 7.54299 19.8988 7.26957 19.6431C6.99616 19.3873 6.80583 19.025 6.66948 18.3405C6.52891 17.6349 6.46488 16.6971 6.37503 15.3492L5.91508 8.45011Z" fill="#1C274C"/> <path d="M9.42546 10.2537C9.83762 10.2125 10.2051 10.5132 10.2464 10.9254L10.7464 15.9254C10.7876 16.3375 10.4869 16.7051 10.0747 16.7463C9.66256 16.7875 9.29502 16.4868 9.25381 16.0746L8.75381 11.0746C8.71259 10.6625 9.0133 10.2949 9.42546 10.2537Z" fill="#1C274C"/> <path d="M15.2464 11.0746C15.2876 10.6625 14.9869 10.2949 14.5747 10.2537C14.1626 10.2125 13.795 10.5132 13.7538 10.9254L13.2538 15.9254C13.2126 16.3375 13.5133 16.7051 13.9255 16.7463C14.3376 16.7875 14.7051 16.4868 14.7464 16.0746L15.2464 11.0746Z" fill="#1C274C"/> </g>
+        </svg>
+      </a>
+    </div>
+    <button type="button" id="btnPag" class="i-form">Abrir todas las web</button>
+    <button type="button" id="btnSearch" class="i-form">Buscar documentos</button>
+    <button type="button" id="btnCancel" class="i-form">Cancelar busqueda</button>
+    <div class="io-cont">
+      <button type="button" id="btnImport" class="i-form import-button">Importar Datos</button>
+      <button type="button" id="btnExport" class="i-form export-button">Exportar Datos</button>
+      <input class="file-hide" type="file" id="_json" accept=".json" />
+    </div>
+
+    <div class="judgeMsg"><label id="judgesReg"></label> Juzgados guardados</div>
+  </body>
+</html>
+<script src="jquery-3.6.0.min.js"></script>
+<script src="saveFile.js"></script>
